@@ -107,11 +107,11 @@ using namespace AuthKeyz;
 
 std::string name = "YourAppName";
 std::string ownerid = "YourOwnerID";
-std::string secret = "YourAppSecret";
 std::string version = "1.0";
 std::string url = "https://authkeyz.bond/api/1.3/";
+std::string path = ""; // Optional save path
 
-api AuthKeyzApp(name, ownerid, secret, version, url);
+api AuthKeyzApp(name, ownerid, version, url, path);
 
 int main() {
     AuthKeyzApp.init();
@@ -134,7 +134,6 @@ using AuthKeyz;
 public static api AuthKeyzApp = new api(
     name: "YourAppName",
     ownerid: "YourOwnerID",
-    secret: "YourAppSecret",
     version: "1.0"
 );
 
@@ -155,12 +154,9 @@ from authkeyz import api
 AuthKeyzApp = api(
     name="YourAppName",
     ownerid="YourOwnerID",
-    secret="YourAppSecret",
     version="1.0",
-    hash_to_check=None
+    hash_to_check=getchecksum()
 )
-
-AuthKeyzApp.init()
 
 # Authenticate with username/password or key
 AuthKeyzApp.login("username", "password")
